@@ -61,7 +61,7 @@ public class Java_Console_SkillShowcase
                     break;
                 case 'M':
                 case 'm':
-                    System.out.println("\nMath menu has not been created yet");
+                    loadMathMenu();
                     break;
                 case 'Q':
                 case 'q':
@@ -149,6 +149,61 @@ public class Java_Console_SkillShowcase
                 case 'D':
                 case 'd':
                     System.out.println("\n\"Do While Loop\" has not been created yet");
+                    break;
+                case 'H':
+                case 'h':
+                    loadHomeMenu();
+                    break;
+                case 'Q':
+                case 'q':
+                    quit = true;
+                    break;
+                default:
+            }
+            
+        }
+        
+    }
+    
+    /**
+     * This method displays the Math menu
+     */
+    private static void loadMathMenu() {
+        while (!quit) {
+            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
+            
+            
+            // Print the menu and store the selection in variable c
+            c = getChar("~~~~~~~~~~~~~~~~~\n"
+                      + ">>    Math    <<\n"
+                      + "~~~~~~~~~~~~~~~~~\n"
+                      + "(A): Add\n"
+                      + "(S): Subtract\n"
+                      + "(M): Multiply\n"
+                      + "(D): Divide\n"
+                      + "(H): Home\n"
+                      + "(Q): Quit\n\n"
+                      + "Your choice: ");
+            
+            // use the users selection stored in variable c to navigate to the 
+            // appropriate screen
+            switch (c) {
+                case 'A':
+                case 'a':
+                    System.out.println("\n*** \"Add\" has not been created yet ***");
+                    break;
+                case 'S':
+                case 's':
+                    System.out.println("\n***\"Subtract\" has not been created yet ***");
+                    break;
+                case 'M':
+                case 'm':
+                    System.out.println("\n***\"Multiply\" has not been created yet ***");
+                    break;
+                case 'D':
+                case 'd':
+                    System.out.println("\n***\"Divide\" has not been created yet ***");
                     break;
                 case 'H':
                 case 'h':
