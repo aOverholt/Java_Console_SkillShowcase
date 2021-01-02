@@ -227,7 +227,7 @@ public class Java_Console_SkillShowcase
      * the next screen
      */
      public static void pressAnyKeyToContinue() { 
-         System.out.println("Press Enter key to continue...");
+         System.out.println("\nPress Enter key to continue...");
          try {
              System.in.read();
          }  
