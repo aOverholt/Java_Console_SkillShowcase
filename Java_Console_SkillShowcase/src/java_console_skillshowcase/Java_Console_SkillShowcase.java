@@ -77,9 +77,7 @@ public class Java_Console_SkillShowcase
      */
     private static void loadGamesMenu() {
         while (!quit) {
-            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
-                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
-            
+            newPage();
             
             // Print the menu and store the selection in variable c
             c = getChar("~~~~~~~~~~~~~~~~~\n"
@@ -96,7 +94,7 @@ public class Java_Console_SkillShowcase
             switch (c) {
                 case 'M':
                 case 'm':
-                    System.out.println("\nMad Lib has not been created yet");
+                    pages.Games.madLib();
                     break;
                 case 'G':
                 case 'g':
@@ -120,9 +118,7 @@ public class Java_Console_SkillShowcase
      */
     private static void loadLoopsMenu() {
         while (!quit) {
-            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
-                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
-            
+            newPage();
             
             // Print the menu and store the selection in variable c
             c = getChar("~~~~~~~~~~~~~~~~~\n"
@@ -170,9 +166,7 @@ public class Java_Console_SkillShowcase
      */
     private static void loadMathMenu() {
         while (!quit) {
-            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
-                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
-            
+            newPage();
             
             // Print the menu and store the selection in variable c
             c = getChar("~~~~~~~~~~~~~~~~~\n"
@@ -220,4 +214,24 @@ public class Java_Console_SkillShowcase
         
     }
     
+    /**
+     * Creates white space and a divider between "pages"
+     */
+    public static void newPage() {
+            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
+    }
+    
+    /**
+     * Gives the user the opportunity to see information before moving on to 
+     * the next screen
+     */
+     public static void pressAnyKeyToContinue() { 
+         System.out.println("Press Enter key to continue...");
+         try {
+             System.in.read();
+         }  
+         catch(Exception e) {
+         }  
+     }
 }
