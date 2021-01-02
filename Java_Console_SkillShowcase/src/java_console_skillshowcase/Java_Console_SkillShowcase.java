@@ -19,27 +19,37 @@ public class Java_Console_SkillShowcase
 
     
     
-    
+    // load Scanner
     Scanner sc = new Scanner(System.in);
+    
+    // Variables
     static char c = 0;
     static boolean quit = false;
     
     
-    private static void loadHomeMenu()
-    {
+    
+    /**
+     * This method displays the Home menu
+     */
+    private static void loadHomeMenu() {
         while (!quit) {
             System.out.println("\n\n\n\n**************************************************************\n"
                              + "Welcome to L. Andrew Overholt's Java Console Skills Showcase!\n"
                              + "**************************************************************\n\n");
             
             
-            // Print the menu
-            c = getChar("** HOME **\n"
+            // Print the menu and store the selection in variable c
+            c = getChar("~~~~~~~~~~~~~~~~\n"
+                      + ">>    Home    <<\n"
+                      + "~~~~~~~~~~~~~~~~\n"
                       + "(G): Games\n"
                       + "(L): Loops\n"
                       + "(M): Math\n"
                       + "(Q): Quit\n\n"
                       + "Your choice: ");
+            
+            // use the users selection stored in variable c to navigate to the 
+            // appropriate screen
             switch (c) {
                 case 'G':
                 case 'g':
@@ -47,7 +57,7 @@ public class Java_Console_SkillShowcase
                     break;
                 case 'l':
                 case 'L':
-                    System.out.println("\nLoops menu has not been created yet");
+                    loadLoopsMenu();
                     break;
                 case 'M':
                 case 'm':
@@ -59,23 +69,30 @@ public class Java_Console_SkillShowcase
                     break;
                 default:
             }
-            
         }
     }
     
+    /**
+     * This method displays the Games menu
+     */
     private static void loadGamesMenu() {
         while (!quit) {
             System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
                              + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
             
             
-            // Print the menu
-            c = getChar("** GAMES **\n"
+            // Print the menu and store the selection in variable c
+            c = getChar("~~~~~~~~~~~~~~~~~\n"
+                      + ">>    Games    <<\n"
+                      + "~~~~~~~~~~~~~~~~~\n"
                       + "(M): Mad Lib\n"
                       + "(G): Guess the Number\n"
                       + "(H): Home\n"
                       + "(Q): Quit\n\n"
                       + "Your choice: ");
+            
+            // use the users selection stored in variable c to navigate to the 
+            // appropriate screen
             switch (c) {
                 case 'M':
                 case 'm':
@@ -84,6 +101,54 @@ public class Java_Console_SkillShowcase
                 case 'G':
                 case 'g':
                     System.out.println("\nGuess the Number has not been created yet");
+                    break;
+                case 'H':
+                case 'h':
+                    loadHomeMenu();
+                    break;
+                case 'Q':
+                case 'q':
+                    quit = true;
+                    break;
+                default:
+            }
+        }
+    }
+    
+    /**
+     * This method displays the Loops menu
+     */
+    private static void loadLoopsMenu() {
+        while (!quit) {
+            System.out.println("\n\n\n\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n"
+                             + " * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n\n");
+            
+            
+            // Print the menu and store the selection in variable c
+            c = getChar("~~~~~~~~~~~~~~~~~\n"
+                      + ">>    LOOPS    <<\n"
+                      + "~~~~~~~~~~~~~~~~~\n"
+                      + "(W): While Loop\n"
+                      + "(F): For Loop\n"
+                      + "(D): Do While\n"
+                      + "(H): Home\n"
+                      + "(Q): Quit\n\n"
+                      + "Your choice: ");
+            
+            // use the users selection stored in variable c to navigate to the 
+            // appropriate screen
+            switch (c) {
+                case 'W':
+                case 'w':
+                    System.out.println("\n\"While Loop\" has not been created yet");
+                    break;
+                case 'F':
+                case 'f':
+                    System.out.println("\n\"For Loop\" has not been created yet");
+                    break;
+                case 'D':
+                case 'd':
+                    System.out.println("\n\"Do While Loop\" has not been created yet");
                     break;
                 case 'H':
                 case 'h':
