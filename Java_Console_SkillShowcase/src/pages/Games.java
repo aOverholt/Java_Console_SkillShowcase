@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 import static java_console_skillshowcase.Java_Console_SkillShowcase.newPage;
 import static java_console_skillshowcase.Java_Console_SkillShowcase.pressAnyKeyToContinue;
+import static validation.InputValidation.getChar;
 import static validation.InputValidation.getString;
 
 /**
@@ -12,6 +13,39 @@ import static validation.InputValidation.getString;
  */
 public class Games {
     Scanner sc = new Scanner(System.in);
+    static boolean quit = false;
+    static char c = 0;
+    
+       
+    /**
+     * This method displays the Games menu
+     */
+    public static void loadGamesMenu() {
+        while (!quit) {
+            newPage();
+            
+            // Print the menu and store the selection in variable c
+            c = getChar("~~~~~~~~~~~~~~~~~\n"
+                      + ">>    Games    <<\n"
+                      + "~~~~~~~~~~~~~~~~~\n"
+                      + "(M): Mad Lib\n"
+                      + "(G): Guess the Number\n"
+                      + "(H): Home\n"
+                      + "(Q): Quit\n\n"
+                      + "Your choice: ");
+            
+            // use the users selection stored in variable c to navigate to the 
+            // appropriate screen
+            switch (c) {
+                case 'M', 'm' -> madLib();
+                case 'G', 'g' -> System.out.println("\nGuess the Number has not been created yet");
+                case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
+                case 'Q', 'q' -> quit = true;
+                default -> { 
+                }
+            }
+        }
+    }
     
     /**
      * This method calls a random Mad lib
