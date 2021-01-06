@@ -22,7 +22,7 @@ public class Java_Console_SkillShowcase
     
     // Variables
     static char c = 0;
-    static boolean quit = false;
+    public static boolean quit = false;
     
     
     
@@ -54,6 +54,8 @@ public class Java_Console_SkillShowcase
                 case 'M', 'm' -> pages.Maths.loadMathMenu();
                 case 'Q', 'q' -> quit = true;
                 default ->      {
+                    System.out.println("\nThat is not a valid option. Please try again!");
+                    pressAnyKeyToContinue();
                 }
             }
         }
