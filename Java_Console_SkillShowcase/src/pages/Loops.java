@@ -9,9 +9,13 @@ import static validation.InputValidation.getChar;
  * @author L. Andrew Overholt
  */
 public class Loops {
+    // load Scanner
     Scanner sc = new Scanner(System.in);
-    static boolean quit = false;
+    
+    // Variables
     static char c = 0;
+    static boolean quit = false;
+    
     
     /**
      * This method displays the Loops menu
