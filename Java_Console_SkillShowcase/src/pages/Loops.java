@@ -2,6 +2,7 @@ package pages;
 
 import java.util.Scanner;
 import static java_console_skillshowcase.Java_Console_SkillShowcase.newPage;
+import static java_console_skillshowcase.Java_Console_SkillShowcase.pressAnyKeyToContinue;
 import static validation.InputValidation.getChar;
 
 /**
@@ -14,14 +15,13 @@ public class Loops {
     
     // Variables
     static char c = 0;
-    static boolean quit = false;
     
     
     /**
      * This method displays the Loops menu
      */
     public static void loadLoopsMenu() {
-        while (!quit) {
+        while (!java_console_skillshowcase.Java_Console_SkillShowcase.quit) {
             newPage();
             
             // Print the menu and store the selection in variable c
@@ -42,8 +42,10 @@ public class Loops {
                 case 'F', 'f' -> System.out.println("\n\"For Loop\" has not been created yet");
                 case 'D', 'd' -> System.out.println("\n\"Do While Loop\" has not been created yet");
                 case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
-                case 'Q', 'q' -> quit = true;
+                case 'Q', 'q' -> java_console_skillshowcase.Java_Console_SkillShowcase.quit = true;
                 default ->      {
+                    System.out.println("\nThat is not a valid option. Please try again!");
+                    pressAnyKeyToContinue();
                 }
             }
             
