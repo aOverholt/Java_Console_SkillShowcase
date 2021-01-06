@@ -17,13 +17,12 @@ public class Games {
     
     // Variables
     static char c = 0;
-    static boolean quit = false;
        
     /**
      * This method displays the Games menu
      */
     public static void loadGamesMenu() {
-        while (!quit) {
+        while (!java_console_skillshowcase.Java_Console_SkillShowcase.quit) {
             newPage();
             
             // Print the menu and store the selection in variable c
@@ -42,8 +41,10 @@ public class Games {
                 case 'M', 'm' -> madLib();
                 case 'G', 'g' -> guessTheNumber();
                 case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
-                case 'Q', 'q' -> quit = true;
+                case 'Q', 'q' -> java_console_skillshowcase.Java_Console_SkillShowcase.quit = true;
                 default -> { 
+                    System.out.println("\nThat is not a valid option. Please try again!");
+                    pressAnyKeyToContinue();
                 }
             }
         }
@@ -241,13 +242,13 @@ public class Games {
         
         // Get a random number between 1-10
         Random rand = new Random(); //instance of random class
-        multiplier = rand.nextInt(10); //generate random values from 0-10
+        multiplier = rand.nextInt(100); //generate random values from 0-100 (percentage)
         
         // get the range
         range = max - min;
         
         // calculate the answer 
-        answer = min + (int)Math.round(((multiplier * range)/10));
+        answer = min + (int)Math.round(((multiplier * range)/100));
         
         System.out.println("\n\nNow guess the number! Remember, it must be between " + min + " and " + max + ".");
         
@@ -259,7 +260,7 @@ public class Games {
                     if (numGuesses < maxGuesses) {
                         System.out.println("Incorrect! Try again!");
                     } else {
-                        System.out.println("incorrect! You are out of guesses.\n"
+                        System.out.println("Incorrect! You are out of guesses.\n"
                                          + "The correct number was " + answer + ".");
                     }
             } else { // If they guess correctly
