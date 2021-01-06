@@ -2,9 +2,9 @@ package pages;
 
 import java.util.Random;
 import java.util.Scanner;
-import static java_console_skillshowcase.Java_Console_SkillShowcase.newPage;
-import static java_console_skillshowcase.Java_Console_SkillShowcase.pressAnyKeyToContinue;
+import static java_console_skillshowcase.Java_Console_SkillShowcase.*;
 import static validation.InputValidation.getChar;
+import static validation.InputValidation.getInt;
 import static validation.InputValidation.getString;
 
 /**
@@ -12,10 +12,12 @@ import static validation.InputValidation.getString;
  * @author L. Andrew Overholt
  */
 public class Games {
+    // load Scanner
     Scanner sc = new Scanner(System.in);
-    static boolean quit = false;
-    static char c = 0;
     
+    // Variables
+    static char c = 0;
+    static boolean quit = false;
        
     /**
      * This method displays the Games menu
@@ -38,7 +40,7 @@ public class Games {
             // appropriate screen
             switch (c) {
                 case 'M', 'm' -> madLib();
-                case 'G', 'g' -> System.out.println("\nGuess the Number has not been created yet");
+                case 'G', 'g' -> guessTheNumber();
                 case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
                 case 'Q', 'q' -> quit = true;
                 default -> { 
@@ -50,7 +52,7 @@ public class Games {
     /**
      * This method calls a random Mad lib
      */
-    public static void madLib() {
+    private static void madLib() {
         
         // Get a random number
         Random rand = new Random(); //instance of random class
@@ -70,7 +72,7 @@ public class Games {
      * madLib1 prompts the user for words and then puts them in the blanks of a 
      * Mad Lib
      */
-    public static void madLib1() {
+    private static void madLib1() {
         
         newPage();
         
@@ -142,7 +144,7 @@ public class Games {
      * madLib2 prompts the user for words and then puts them in the blanks of a 
      * Mad Lib
      */
-    public static void madLib2() {
+    private static void madLib2() {
         
         newPage();
 
@@ -179,5 +181,96 @@ public class Games {
                          + adv2 + " every after."); //line6
         
         pressAnyKeyToContinue();
+    }
+    
+    
+    /**
+     * guessTheNumber asks the user for a range, a number of guesses, and then picks
+     * a random number within the range and gives the user the amount of guesses to 
+     * figure it out.
+     */
+    private static void guessTheNumber() {
+        int min = 0;
+        int max = 0;
+        int range;
+        int multiplier;
+        int answer;
+        int guess;
+        int numGuesses = 0;
+        int maxGuesses = 3;
+        boolean maxIsHigherThanMin = false;
+        
+        
+        newPage();
+        
+        // print info section
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                         + ">>  Guess the Number  <<\n"
+                         + "~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                         + "You will enter a range of numbers, then a random\n"
+                         + "number in that range of numbers will be selected.\n"
+                         + "You will have " + maxGuesses + " guesses to get the correct number.\n"
+                         + "Good Luck!");
+        
+        // get the range of numbers from the user
+        while (!maxIsHigherThanMin) {
+            min = getInt("\n\nEnter the lowest number in the range: ");
+            max = getInt("Enter the highest number in the range: ");
+            
+            if (max <= min) {
+                System.out.println("\nThe second number you enter must be higher than the first!");
+            } else {
+                maxIsHigherThanMin = true;
+            }
+        }
+        
+        /*
+         * The way the random answer works:
+         * 1. We get a random number between 0 and 10. This number will act like a percentage.
+         * 2. We find the range using the max minus the min. For instance, max 15 - min 11 = range of 4
+         * 3. Multiply the "percentage" by the range and then divide by 10 
+         * 4. We get the answer by adding that number to the min.
+         * 
+         * Lets say min = 43, max = 72, multiplier = 6
+         * range would be 29 (72 - 43)
+         * 29 * 6 = 174
+         * 174 / 10 = 17.4
+         * answer = 17.4 + 43
+         * answer = 60.4, which rounds down to 60
+         */
+        
+        // Get a random number between 1-10
+        Random rand = new Random(); //instance of random class
+        multiplier = rand.nextInt(10); //generate random values from 0-10
+        
+        // get the range
+        range = max - min;
+        
+        // calculate the answer 
+        answer = min + (int)Math.round(((multiplier * range)/10));
+        
+        System.out.println("\n\nNow guess the number! Remember, it must be between " + min + " and " + max + ".");
+        
+        while (numGuesses < maxGuesses) {
+            guess = getInt("\nYour guess: ", min, max);
+            numGuesses ++;
+            
+            if (guess != answer) { // If they guess wrong
+                    if (numGuesses < maxGuesses) {
+                        System.out.println("Incorrect! Try again!");
+                    } else {
+                        System.out.println("incorrect! You are out of guesses.\n"
+                                         + "The correct number was " + answer + ".");
+                    }
+            } else { // If they guess correctly
+                System.out.println("You win!! Congratulations!");
+                numGuesses += maxGuesses; // make sure the loop ends
+            }
+            
+            
+        }
+        pressAnyKeyToContinue();
+        loadGamesMenu();
+        
     }
 }
