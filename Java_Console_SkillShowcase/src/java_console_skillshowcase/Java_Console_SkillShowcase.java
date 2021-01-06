@@ -10,9 +10,6 @@ import static validation.InputValidation.getChar;
  */
 public class Java_Console_SkillShowcase
 {
-    /*
-     * MAIN METHOD
-     */
     public static void main(String[] args)
     {
         loadHomeMenu();
