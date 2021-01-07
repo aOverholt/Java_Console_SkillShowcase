@@ -267,11 +267,9 @@ public class Games {
                 System.out.println("You win!! Congratulations!");
                 numGuesses += maxGuesses; // make sure the loop ends
             }
-            
-            
         }
-        pressAnyKeyToContinue();
-        loadGamesMenu();
         
+        // Keep the results up until the user is ready to continue
+        pressAnyKeyToContinue();
     }
 }
