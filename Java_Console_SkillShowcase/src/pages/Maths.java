@@ -42,7 +42,7 @@ public class Maths {
             switch (c) {
                 case 'A', 'a' -> addition();
                 case 'S', 's' -> subtraction();
-                case 'M', 'm' -> System.out.println("\n***\"Multiply\" has not been created yet ***");
+                case 'M', 'm' -> multiplication();
                 case 'D', 'd' -> System.out.println("\n***\"Divide\" has not been created yet ***");
                 case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
                 case 'Q', 'q' -> java_console_skillshowcase.Java_Console_SkillShowcase.quit = true;
@@ -114,7 +114,39 @@ public class Maths {
         result = num1 - num2;
         
         // Display results
-        System.out.println("\n" + num1 + " + " + num2 + " = " + result + "\n");
+        System.out.println("\n" + num1 + " - " + num2 + " = " + result + "\n");
+        
+        // Keep the results up until the user is ready to continue
+        pressAnyKeyToContinue();
+    }
+    
+    
+    /**
+     * This method allows the user to enter two numbers.
+     * The two numbers will be multiplied together.
+     */
+    private static void multiplication() {
+        double num1;
+        double num2;
+        double result;
+        
+        newPage();
+        
+        // print info section
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~\n"
+                         + ">>  Multiplication  <<\n"
+                         + "~~~~~~~~~~~~~~~~~~~~~~\n"
+                         + "You will enter two numbers to multiply.\n");
+        
+        // Get the numbers from the user
+        num1 = getDouble("First number: ");
+        num2 = getDouble("Second number: ");
+        
+        // Calculate results
+        result = num1 * num2;
+        
+        // Display results
+        System.out.println("\n" + num1 + " * " + num2 + " = " + result + "\n");
         
         // Keep the results up until the user is ready to continue
         pressAnyKeyToContinue();
