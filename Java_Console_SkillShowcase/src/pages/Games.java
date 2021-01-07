@@ -242,13 +242,13 @@ public class Games {
         
         // Get a random number between 1-10
         Random rand = new Random(); //instance of random class
-        multiplier = rand.nextInt(100); //generate random values from 0-100 (percentage)
+        multiplier = rand.nextInt(10000); //generate random values from 0-100 (percentage)
         
         // get the range
         range = max - min;
         
         // calculate the answer 
-        answer = min + (int)Math.round(((multiplier * range)/100));
+        answer = min + (int)Math.round(((multiplier * range)/10000));
         
         System.out.println("\n\nNow guess the number! Remember, it must be between " + min + " and " + max + ".");
         
