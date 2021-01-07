@@ -43,7 +43,7 @@ public class Maths {
                 case 'A', 'a' -> addition();
                 case 'S', 's' -> subtraction();
                 case 'M', 'm' -> multiplication();
-                case 'D', 'd' -> System.out.println("\n***\"Divide\" has not been created yet ***");
+                case 'D', 'd' -> division();
                 case 'H', 'h' -> java_console_skillshowcase.Java_Console_SkillShowcase.loadHomeMenu();
                 case 'Q', 'q' -> java_console_skillshowcase.Java_Console_SkillShowcase.quit = true;
                 default ->      {
@@ -147,6 +147,39 @@ public class Maths {
         
         // Display results
         System.out.println("\n" + num1 + " * " + num2 + " = " + result + "\n");
+        
+        // Keep the results up until the user is ready to continue
+        pressAnyKeyToContinue();
+    }
+    
+    
+    /**
+     * This method allows the user to enter two numbers.
+     * The first number will be divided by the second.
+     */
+    private static void division() {
+        double num1;
+        double num2;
+        double result;
+        
+        newPage();
+        
+        // print info section
+        System.out.println("~~~~~~~~~~~~~~~~\n"
+                         + ">>  Division  <<\n"
+                         + "~~~~~~~~~~~~~~~~\n"
+                         + "You will enter two numbers.\n"
+                         + "The first number will be divided by the second.\n");
+        
+        // Get the numbers from the user
+        num1 = getDouble("First number: ");
+        num2 = getDouble("Second number: ");
+        
+        // Calculate results
+        result = num1 / num2;
+        
+        // Display results
+        System.out.println("\n" + num1 + " / " + num2 + " = " + result + "\n");
         
         // Keep the results up until the user is ready to continue
         pressAnyKeyToContinue();
